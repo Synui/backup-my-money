@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   Product.findAll({
-    order: [['product_name', 'ASC']],
+    // order: [['product_name', 'ASC']],
     attributes: [
       'id',
       'product_name',
@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    order: [['product_name', 'ASC']],
+    // order: [['product_name', 'ASC']],
     attributes: [
       'id',
       'product_name',
