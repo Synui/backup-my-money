@@ -46,6 +46,15 @@ router.get('/:id', (req, res) => {
 
 // create a new category
 router.post('/', (req, res) => {
+  /* the req.body would display like this:
+    {
+      product_name: "Basketball",
+      price: 200.00,
+      stock: 3,
+      category_id: [1, 2]
+      tagIds: [1, 2, 3, 4]
+    }
+  */
   Category.create({
     category_name: req.body.category_name
   })
