@@ -6,21 +6,9 @@ const { Category, Product } = require('../../models');
 // all categories
 router.get('/', (req, res) => {
   Category.findAll({
-    // order: [['category_name', 'ASC']],
-    attributes: [
-      'id',
-      'category_name',
-    ],
     include: [
       {
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'price',
-          'stock',
-          'category_id'
-        ]
+        model: Product
       }
     ]
   })
@@ -37,21 +25,9 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    // order: [['category_name', 'ASC']],
-    attributes: [
-      'id',
-      'category_name',
-    ],
     include: [
       {
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'price',
-          'stock',
-          'category_id'
-        ]
+        model: Product
       }
     ]
   })
@@ -68,7 +44,7 @@ router.get('/:id', (req, res) => {
     })
 });
 
-  // create a new category
+// create a new category
 router.post('/', (req, res) => {
   Category.create({
     category_name: req.body.category_name
@@ -82,7 +58,7 @@ router.post('/', (req, res) => {
 
 // update a category by its `id` value
 router.put('/:id', (req, res) => {
-gory.update(
+  Category.update(
     {
       category_name: req.body.category_name
     },
